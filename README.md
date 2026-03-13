@@ -59,43 +59,24 @@ development lifecycle**.
 The detailed design and operational documentation for this reference
 architecture is located in the **docs** directory.
 
-  ---------------------------------------------------------------------------------
-  Document                                      Description
-  --------------------------------------------- -----------------------------------
-  docs/overview.md                              High-level introduction to the
-                                                DevSecOps security architecture
+## Documentation Index
 
-  docs/quick-start.md                           Quick start guide for running the
-                                                stack
+The detailed design and operational documentation for this reference architecture is located in the **docs** directory.
 
-  docs/architecture.md                          Detailed architecture explanation
-
-  docs/toolchain.md                             Description of the security tools
-                                                used in the stack
-
-  docs/github-actions-implementation.md         CI/CD pipeline implementation using
-                                                GitHub Actions
-
-  docs/dependency-track.md                      Operating Dependency-Track for
-                                                supply chain monitoring
-
-  docs/defectdojo.md                            Using DefectDojo for vulnerability
-                                                management
-
-  docs/sbom-governance.md                       SBOM lifecycle management and
-                                                governance
-
-  docs/security-architecture-threat-model.md    Threat modeling and security
-                                                architecture discussion
-
-  docs/compliance-and-government-contracts.md   Governance and regulatory
-                                                compliance considerations
-
-  docs/operations.md                            Day-to-day operational guidance
-
-  docs/adoption-roadmap.md                      Guidance for organizations adopting
-                                                this architecture
-  ---------------------------------------------------------------------------------
+| Document | Description |
+|---|---|
+| docs/overview.md | High-level introduction to the DevSecOps security architecture |
+| docs/quick-start.md | Quick start guide for running the stack |
+| docs/architecture.md | Detailed architecture explanation |
+| docs/toolchain.md | Description of the security tools used in the stack |
+| docs/github-actions-implementation.md | CI/CD pipeline implementation using GitHub Actions |
+| docs/dependency-track.md | Operating Dependency-Track for supply chain monitoring |
+| docs/defectdojo.md | Using DefectDojo for vulnerability management |
+| docs/sbom-governance.md | SBOM lifecycle management and governance |
+| docs/security-architecture-threat-model.md | Threat modeling and security architecture discussion |
+| docs/compliance-and-government-contracts.md | Governance and regulatory compliance considerations |
+| docs/operations.md | Day-to-day operational guidance |
+| docs/adoption-roadmap.md | Guidance for organizations adopting this architecture |
 
 Architecture diagrams are located in:
 
