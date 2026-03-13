@@ -1,0 +1,72 @@
+name: DevSecOps Security Pipeline
+
+on: push: branches: \[ main \] pull_request: branches: \[ main \]
+workflow_dispatch:
+
+jobs: security-scan: name: DevSecOps Security Scanning runs-on:
+ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install security tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install pip-audit
+          pip install semgrep
+
+      - name: Install Trivy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.50.0_Linux-64bit.deb
+          sudo dpkg -i trivy_0.50.0_Linux-64bit.deb
+
+      - name: Install Syft
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+
+      - name: Install Checkov
+        run: |
+          pip install checkov
+
+      - name: Run Semgrep SAST scan
+        run: |
+          semgrep --config=auto --json --output semgrep-report.json || true
+
+      - name: Run dependency vulnerability scan
+        run: |
+          pip-audit -r requirements.txt -f json -o pip-audit-report.json || true
+
+      - name: Run infrastructure security scan
+        run: |
+          checkov -d . -o json > checkov-report.json || true
+
+      - name: Run container image scan (if Dockerfile exists)
+        run: |
+          if [ -f Dockerfile ]; then
+            docker build -t security-scan-image .
+            trivy image --format json -o trivy-report.json security-scan-image || true
+          fi
+
+      - name: Generate SBOM
+        run: |
+          syft . -o cyclonedx-json > sbom.json
+
+      - name: Upload scan artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-scan-results
+          path: |
+            semgrep-report.json
+            pip-audit-report.json
+            checkov-report.json
+            trivy-report.json
+            sbom.json

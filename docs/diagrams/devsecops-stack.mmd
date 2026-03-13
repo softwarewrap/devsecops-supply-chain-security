@@ -1,0 +1,22 @@
+flowchart TB
+    A[Developer Workflow] --> B[Application Source Code]
+    B --> C[Semgrep<br/>Static Code Analysis]
+    B --> D[pip-audit<br/>Dependency Vulnerability Scan]
+    B --> E[Checkov<br/>Infrastructure Configuration Analysis]
+    B --> F[Docker Build / Container Image]
+    F --> G[Trivy<br/>Container Vulnerability Scan]
+    F --> H[Syft<br/>SBOM Generation]
+    H --> I[Dependency-Track<br/>Supply Chain Monitoring]
+    C --> J[Findings Aggregation]
+    D --> J
+    E --> J
+    G --> J
+    I --> J
+    J[DefectDojo<br/>Centralized Vulnerability Management]
+
+    K[Governance Outcomes] --> L[Remediation Tracking]
+    K --> M[Auditability]
+    K --> N[Supply Chain Transparency]
+    K --> O[Compliance Readiness]
+
+    J --> K

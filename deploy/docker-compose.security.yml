@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+
+dependency-track: image: dependencytrack/apiserver:latest
+container_name: dependency-track restart: unless-stopped ports: -
+"8081:8080" environment: - ALPINE_DATABASE_MODE=external -
+ALPINE_DATABASE_URL=jdbc:postgresql://dependencytrack-db:5432/dtrack -
+ALPINE_DATABASE_USERNAME=dtrack -
+ALPINE_DATABASE_PASSWORD=dtrackpassword depends_on: - dependencytrack-db
+volumes: - dependencytrack-data:/data
+
+dependencytrack-db: image: postgres:15 container_name:
+dependencytrack-db restart: unless-stopped environment: POSTGRES_DB:
+dtrack POSTGRES_USER: dtrack POSTGRES_PASSWORD: dtrackpassword
+volumes: - dependencytrack-db-data:/var/lib/postgresql/data
+
+defectdojo: image: defectdojo/defectdojo-django:latest container_name:
+defectdojo restart: unless-stopped ports: - "8082:8080" environment:
+DD_DATABASE_URL: postgres://dojo:dojopassword@defectdojo-db:5432/dojo
+DD_ALLOWED_HOSTS: "\*" DD_SECRET_KEY: change_me depends_on: -
+defectdojo-db volumes: - defectdojo-media:/app/media
+
+defectdojo-db: image: postgres:15 container_name: defectdojo-db restart:
+unless-stopped environment: POSTGRES_DB: dojo POSTGRES_USER: dojo
+POSTGRES_PASSWORD: dojopassword volumes: -
+defectdojo-db-data:/var/lib/postgresql/data
+
+volumes: dependencytrack-data: dependencytrack-db-data:
+defectdojo-media: defectdojo-db-data:

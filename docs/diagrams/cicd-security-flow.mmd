@@ -1,0 +1,20 @@
+flowchart LR
+    A[Developer Commit] --> B[GitHub Push / Pull Request]
+    B --> C[GitHub Actions Workflow]
+    C --> D[Checkout Repository]
+    D --> E[Install Security Tooling]
+    E --> F[Semgrep Scan]
+    F --> G[pip-audit Scan]
+    G --> H[Checkov Scan]
+    H --> I{Dockerfile present?}
+    I -- Yes --> J[Build Container Image]
+    J --> K[Trivy Image Scan]
+    I -- No --> L[Skip Image Scan]
+    K --> M[Generate SBOM with Syft]
+    L --> M
+    M --> N[Upload Scan Artifacts]
+    M --> O[Upload SBOM to Dependency-Track]
+    N --> P[Import Findings to DefectDojo]
+    O --> Q[Continuous Component Monitoring]
+    P --> R[Triaged and Tracked Findings]
+    Q --> R
