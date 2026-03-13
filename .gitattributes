@@ -1,0 +1,59 @@
+# Text files (normalize line endings)
+* text=auto
+
+# Markdown and documentation
+*.md text
+*.txt text
+*.yaml text
+*.yml text
+*.json text
+*.xml text
+*.sh text
+*.py text
+*.js text
+*.ts text
+
+# Diagrams and images
+*.svg text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+
+# Microsoft Office
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+*.vsdx binary
+
+# OpenDocument formats
+*.odt binary
+*.ods binary
+*.odp binary
+
+# PDFs
+*.pdf binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.tgz binary
+*.bz2 binary
+*.7z binary
+
+# Compiled artifacts
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
