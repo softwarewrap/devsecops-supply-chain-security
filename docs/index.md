@@ -32,7 +32,7 @@ governance, and operational sections.
 | Document | Description |
 | --- | --- |
 | [quick-start.md](quick-start.md) | Quick start guide for deploying the stack |
-| [github-actions-implementation.md](github-actions-implementation.md)   CI/CD pipeline implementation using GitHub Actions |
+| [github-actions-implementation.md](github-actions-implementation.md) | CI/CD pipeline implementation using GitHub Actions |
 | [dependency-track.md](dependency-track.md) | Integration and operation of Dependency-Track |
 | [defectdojo.md](defectdojo.md) | Integration and operation of DefectDojo |
 
