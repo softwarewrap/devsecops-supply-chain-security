@@ -12,8 +12,6 @@ teams can integrate open-source security tooling directly into CI/CD
 workflows while maintaining governance visibility across the lifecycle
 of software components.
 
-------------------------------------------------------------------------
-
 # Documentation Overview
 
 The documentation is organized into conceptual, implementation,
@@ -36,7 +34,6 @@ governance, and operational sections.
 | [github-actions-implementation.md](github-actions-implementation.md)   CI/CD pipeline implementation using GitHub Actions |
 | [dependency-track.md](dependency-track.md) | Integration and operation of Dependency-Track |
 | [defectdojo.md](defectdojo.md) | Integration and operation of DefectDojo |
-  ----------------------------------------------------------------------------------------------------------
 
 ## Governance and Compliance
 
@@ -76,8 +73,6 @@ This documentation explains how to implement:
 
 Together these components create a **defense-in-depth DevSecOps security architecture**.
 
-------------------------------------------------------------------------
-
 # Recommended Reading Order
 
 For readers new to the architecture, the recommended reading sequence
@@ -91,8 +86,6 @@ is:
 6.  [sbom-governance.md](sbom-governance.md)
 7.  [operations.md](operations.md)
 
-------------------------------------------------------------------------
-
 # Relationship to the Repository
 
 This documentation complements the rest of the repository structure:
@@ -102,8 +95,6 @@ This documentation complements the rest of the repository structure:
     scripts/     → automation utilities used by the pipeline
     .github/     → CI/CD security pipeline definition
     examples/    → example projects demonstrating integration
-
-------------------------------------------------------------------------
 
 # License
 
