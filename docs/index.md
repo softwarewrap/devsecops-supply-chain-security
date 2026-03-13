@@ -30,6 +30,7 @@ governance, and operational sections.
 ## Implementation
 
 | Document | Description |
+| --- | --- |
 | [quick-start.md](quick-start.md) | Quick start guide for deploying the stack |
 | [github-actions-implementation.md](github-actions-implementation.md)   CI/CD pipeline implementation using GitHub Actions |
 | [dependency-track.md](dependency-track.md) | Integration and operation of Dependency-Track |
@@ -38,12 +39,14 @@ governance, and operational sections.
 ## Governance and Compliance
 
 | Document | Description |
+| --- | --- |
 | [sbom-governance.md](sbom-governance.md) | SBOM lifecycle management and governance |
 | [compliance-and-government-contracts.md](compliance-and-government-contracts.md) | Regulatory and government compliance considerations |
 
 ## Operations
 
 | Document | Description |
+| --- | --- |
 | [operations.md](operations.md) | Operational guidance and maintenance |
 | [adoption-roadmap.md](adoption-roadmap.md) | Organizational adoption and rollout strategy |
 
@@ -55,6 +58,7 @@ These diagrams are stored as Mermaid sources so they remain
 version-controlled and editable.
 
 | Diagram | Description |
+| --- | --- |
 | [devsecops-stack.mmd](diagrams/devsecops-stack.mmd) | Overall DevSecOps security stack architecture |
 | [cicd-security-flow.mmd](diagrams/cicd-security-flow.mmd) | CI/CD pipeline security flow |
 | [cicd-security-flow.svg](diagrams/cicd-security-flow.svg) | Rendered pipeline diagram |
