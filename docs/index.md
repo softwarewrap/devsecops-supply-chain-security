@@ -60,8 +60,10 @@ version-controlled and editable.
 | Diagram | Description |
 | --- | --- |
 | [devsecops-stack.mmd](diagrams/devsecops-stack.mmd) | Overall DevSecOps security stack architecture |
-| [cicd-security-flow.mmd](diagrams/cicd-security-flow.mmd) | CI/CD pipeline security flow |
-| [cicd-security-flow.svg](diagrams/cicd-security-flow.svg) | Rendered pipeline diagram |
+
+## CI/CD Security Pipeline Diagram
+
+![CI/CD Security Flow](diagrams/cicd-security-flow.svg)
 
 # Key Concepts Covered
 
