@@ -10,7 +10,7 @@ This repository provides a **reference DevSecOps architecture and
 implementation examples** intended for laboratories, research teams, and
 engineering groups building secure software supply chains.
 
-It demonstrates how multiple open‑source security tools can be combined
+It demonstrates how multiple open-source security tools can be combined
 to provide **continuous security validation, software supply chain
 visibility, and structured vulnerability management**.
 
@@ -18,20 +18,20 @@ visibility, and structured vulnerability management**.
 
 # Key Features
 
-• **End‑to‑End DevSecOps Pipeline** integrating security directly into
-CI/CD workflows\
-• **Software Bill of Materials (SBOM) generation** using Syft and
-CycloneDX\
-• **Automated vulnerability scanning** across code, dependencies,
-containers, and infrastructure\
-• **Continuous supply chain monitoring** with Dependency‑Track\
-• **Centralized vulnerability management** with DefectDojo\
-• **Reference GitHub Actions pipeline** demonstrating automated security
-gates\
-• **Research‑lab friendly architecture** suitable for academic software
-environments\
-• **Alignment with modern compliance expectations**, including SBOM
-transparency initiatives
+-   **End-to-End DevSecOps Pipeline** integrating security directly into
+    CI/CD workflows
+-   **Software Bill of Materials (SBOM) generation** using Syft and
+    CycloneDX
+-   **Automated vulnerability scanning** across code, dependencies,
+    containers, and infrastructure
+-   **Continuous supply chain monitoring** with Dependency-Track
+-   **Centralized vulnerability management** with DefectDojo
+-   **Reference GitHub Actions pipeline** demonstrating automated
+    security gates
+-   **Architecture suitable for research laboratories and engineering
+    teams**
+-   **Alignment with modern compliance expectations**, including SBOM
+    transparency initiatives
 
 ------------------------------------------------------------------------
 
@@ -39,53 +39,69 @@ transparency initiatives
 
 ![CI/CD Security Flow](docs/diagrams/cicd-security-flow.svg)
 
-The architecture integrates security validation throughout the
-development lifecycle.
+Security validation is integrated throughout the development lifecycle
+including:
 
-Security checks are applied during:
+-   source code scanning
+-   dependency vulnerability analysis
+-   infrastructure configuration validation
+-   container vulnerability scanning
+-   SBOM generation
+-   vulnerability aggregation and management
 
--   source code development
--   dependency resolution
--   infrastructure definition
--   container build processes
--   deployment monitoring
--   vulnerability remediation workflows
-
-This layered approach provides **defense‑in‑depth for modern software
-supply chains**.
+This layered model provides **defense-in-depth across the software
+development lifecycle**.
 
 ------------------------------------------------------------------------
 
-# Security Toolchain
+# Documentation Index
 
-  ------------------------------------------------------------------------
-  Security Capability      Tool                    Purpose
-  ------------------------ ----------------------- -----------------------
-  Static Application       Semgrep                 Detect insecure coding
-  Security Testing                                 patterns
+The detailed design and operational documentation for this reference
+architecture is located in the **docs** directory.
 
-  Dependency Vulnerability pip-audit               Identify vulnerable
-  Scanning                                         Python libraries
+  ---------------------------------------------------------------------------------
+  Document                                      Description
+  --------------------------------------------- -----------------------------------
+  docs/overview.md                              High-level introduction to the
+                                                DevSecOps security architecture
 
-  Infrastructure-as-Code   Checkov                 Detect IaC
-  Security                                         misconfigurations
+  docs/quick-start.md                           Quick start guide for running the
+                                                stack
 
-  Container Image Scanning Trivy                   Identify
-                                                   vulnerabilities in
-                                                   container images
+  docs/architecture.md                          Detailed architecture explanation
 
-  SBOM Generation          Syft                    Produce software
-                                                   component inventories
+  docs/toolchain.md                             Description of the security tools
+                                                used in the stack
 
-  Supply Chain Monitoring  Dependency-Track        Track vulnerabilities
-                                                   in deployed components
+  docs/github-actions-implementation.md         CI/CD pipeline implementation using
+                                                GitHub Actions
 
-  Vulnerability Management DefectDojo              Aggregate findings and
-                                                   track remediation
-  ------------------------------------------------------------------------
+  docs/dependency-track.md                      Operating Dependency-Track for
+                                                supply chain monitoring
 
-Together these tools provide **continuous security visibility across the
-entire development pipeline**.
+  docs/defectdojo.md                            Using DefectDojo for vulnerability
+                                                management
+
+  docs/sbom-governance.md                       SBOM lifecycle management and
+                                                governance
+
+  docs/security-architecture-threat-model.md    Threat modeling and security
+                                                architecture discussion
+
+  docs/compliance-and-government-contracts.md   Governance and regulatory
+                                                compliance considerations
+
+  docs/operations.md                            Day-to-day operational guidance
+
+  docs/adoption-roadmap.md                      Guidance for organizations adopting
+                                                this architecture
+  ---------------------------------------------------------------------------------
+
+Architecture diagrams are located in:
+
+-   docs/diagrams/devsecops-stack.mmd
+-   docs/diagrams/cicd-security-flow.mmd
+-   docs/diagrams/cicd-security-flow.svg
 
 ------------------------------------------------------------------------
 
@@ -97,15 +113,15 @@ Location:
 
 .github/workflows/security-pipeline.yml
 
-The workflow performs:
+Pipeline stages:
 
-1.  Semgrep static code scanning\
-2.  Dependency vulnerability analysis using pip-audit\
-3.  Infrastructure validation using Checkov\
-4.  Container vulnerability scanning using Trivy\
-5.  SBOM generation using Syft\
-6.  Upload of SBOM data to Dependency‑Track\
-7.  Import of findings into DefectDojo
+1.  Static application security testing with Semgrep
+2.  Dependency vulnerability scanning using pip-audit
+3.  Infrastructure-as-Code validation using Checkov
+4.  Container vulnerability scanning using Trivy
+5.  SBOM generation using Syft
+6.  SBOM upload to Dependency-Track
+7.  Findings import into DefectDojo
 
 This demonstrates how security validation can be **fully automated
 inside CI/CD pipelines**.
@@ -117,20 +133,22 @@ inside CI/CD pipelines**.
 ``` text
 .
 ├── deploy
-│   └── docker-compose.security.yml
+│   ├── docker-compose.security.yml
+│   └── env.example
 │
 ├── docs
-│   ├── overview.md
-│   ├── architecture.md
-│   ├── toolchain.md
-│   ├── github-actions-implementation.md
-│   ├── dependency-track.md
-│   ├── defectdojo.md
-│   ├── sbom-governance.md
-│   ├── operations.md
 │   ├── adoption-roadmap.md
-│   ├── security-architecture-threat-model.md
+│   ├── architecture.md
 │   ├── compliance-and-government-contracts.md
+│   ├── defectdojo.md
+│   ├── dependency-track.md
+│   ├── github-actions-implementation.md
+│   ├── operations.md
+│   ├── overview.md
+│   ├── quick-start.md
+│   ├── sbom-governance.md
+│   ├── security-architecture-threat-model.md
+│   ├── toolchain.md
 │   └── diagrams
 │       ├── cicd-security-flow.mmd
 │       ├── cicd-security-flow.svg
@@ -147,6 +165,7 @@ inside CI/CD pipelines**.
 │   └── workflows
 │       └── security-pipeline.yml
 │
+├── LICENSE
 └── README.md
 ```
 
@@ -188,7 +207,7 @@ deploy/docker-compose.security.yml
 
 This deploys:
 
--   **Dependency‑Track** (software supply chain monitoring)
+-   **Dependency-Track** (software supply chain monitoring)
 -   **DefectDojo** (vulnerability management and remediation tracking)
 
 ------------------------------------------------------------------------
@@ -202,7 +221,7 @@ Scripts demonstrate integration with governance platforms:
 -   scripts/import-defectdojo.sh
 
 These scripts illustrate how CI pipelines export security findings into
-long‑term monitoring systems.
+long-term monitoring systems.
 
 ------------------------------------------------------------------------
 
@@ -254,12 +273,11 @@ this architecture:
 
 This reference architecture is useful for:
 
-• **University research laboratories** developing scientific software\
-• **Startups** building containerized platforms\
-• **Engineering teams** implementing secure CI/CD pipelines\
-• **Organizations pursuing government contracts requiring supply chain
-security**\
-• **Open‑source maintainers** seeking practical DevSecOps patterns
+-   **University research laboratories** developing scientific software
+-   **Engineering teams implementing secure CI/CD pipelines**
+-   **Organizations pursuing government contracts requiring supply chain**
+-   **Startups building containerized platforms**
+-   **Open-source maintainers improving supply chain security**
 
 ------------------------------------------------------------------------
 
